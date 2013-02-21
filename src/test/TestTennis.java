@@ -13,4 +13,12 @@ public class TestTennis {
         assertEquals("0-0", unJeuDeTennis.Score());
 
     }
+
+    @Test
+    public void LeJoueur1MarqueUnPoint()
+    {
+        JeuTennis unJeuDeTennis = new JeuTennis();
+        unJeuDeTennis.Joueur1Marque();
+        assertEquals("15-0", unJeuDeTennis.Score());
+    }
 }
