@@ -43,4 +43,14 @@ public class TestTennis {
         unJeuDeTennis.Joueur2Marque();
         assertEquals("30-30", unJeuDeTennis.Score());
     }
+
+    @Test
+    public void UnJoueurPeurMarquer3Points()
+    {
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        assertEquals("40-0", unJeuDeTennis.Score());
+
+    }
 }
