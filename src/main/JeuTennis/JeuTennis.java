@@ -16,17 +16,25 @@ public class JeuTennis {
     }
 
     public String Score() {
-        if(nombreDePointDuJoueur1 >= 4)
-            return(nomDuJoueur1 + " a gagne la partie");
-        if(nomBreDePointDuJoueur2 >= 4)
-            return(nomDuJoueur2 + " a gagne la partie");
+        if (LeJoueur1AGagneLaPartie()) return (nomDuJoueur1 + " a gagne la partie");
+        if (LeJoueur2AGagneLaPartie()) return (nomDuJoueur2 + " a gagne la partie");
+        if (LesJoueurSontAEqualite()) return "Equalite";
 
-        if((nombreDePointDuJoueur1 == nomBreDePointDuJoueur2) && (nombreDePointDuJoueur1 >= 3))
-        {
-            return "Equalite";
-        }
 
         return(ConvertirPointEnScore(nombreDePointDuJoueur1) + "-" + ConvertirPointEnScore(nomBreDePointDuJoueur2));
+    }
+
+    private boolean LeJoueur2AGagneLaPartie() {
+        return nomBreDePointDuJoueur2 >= 4;
+    }
+
+    private boolean LeJoueur1AGagneLaPartie() {
+        return nombreDePointDuJoueur1 >= 4;
+    }
+
+
+    private boolean LesJoueurSontAEqualite() {
+        return (nombreDePointDuJoueur1 == nomBreDePointDuJoueur2) && (nombreDePointDuJoueur1 >= 3);
     }
 
     public void Joueur1Marque() {
