@@ -16,10 +16,15 @@ public class JeuTennis {
     }
 
     public String Score() {
-        if (nombreDePointDuJoueur1 >= 4)
+        if(nombreDePointDuJoueur1 >= 4)
             return(nomDuJoueur1 + " a gagne la partie");
-        if (nomBreDePointDuJoueur2 >= 4)
+        if(nomBreDePointDuJoueur2 >= 4)
             return(nomDuJoueur2 + " a gagne la partie");
+
+        if((nombreDePointDuJoueur1 == nomBreDePointDuJoueur2) && (nombreDePointDuJoueur1 >= 3))
+        {
+            return "Equalite";
+        }
 
         return(ConvertirPointEnScore(nombreDePointDuJoueur1) + "-" + ConvertirPointEnScore(nomBreDePointDuJoueur2));
     }

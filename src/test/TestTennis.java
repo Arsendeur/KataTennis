@@ -72,4 +72,16 @@ public class TestTennis {
         unJeuDeTennis.Joueur2Marque();
         assertEquals("Kerrigan a gagne la partie", unJeuDeTennis.Score());
     }
+
+    @Test
+    public void LesJoueurSontAEqualite()
+    {
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        assertEquals("Equalite", unJeuDeTennis.Score());
+    }
 }
