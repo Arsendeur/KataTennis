@@ -4,10 +4,22 @@ package main.JeuTennis;
 
 
 public class JeuTennis {
-    int nombreDePointDuJoueur1 = 0;
-    int nomBreDePointDuJoueur2 = 0;
+    private int nombreDePointDuJoueur1 = 0;
+    private int nomBreDePointDuJoueur2 = 0;
+    private String nomDuJoueur1;
+    private String nomDuJoueur2;
+
+    public JeuTennis(String nomDuJoueur1, String nomDuJoueur2)
+    {
+        this.nomDuJoueur1 = nomDuJoueur1;
+        this.nomDuJoueur2 = nomDuJoueur2;
+    }
 
     public String Score() {
+        if (nombreDePointDuJoueur1 >= 4)
+            return(nomDuJoueur1 + " a gagne la partie");
+        if (nomBreDePointDuJoueur2 >= 4)
+            return(nomDuJoueur2 + " a gagne la partie");
 
         return(ConvertirPointEnScore(nombreDePointDuJoueur1) + "-" + ConvertirPointEnScore(nomBreDePointDuJoueur2));
     }

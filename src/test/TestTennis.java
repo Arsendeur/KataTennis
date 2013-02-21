@@ -10,7 +10,7 @@ public class TestTennis {
     @Before
     public void initialiser()
     {
-        unJeuDeTennis = new JeuTennis();
+        unJeuDeTennis = new JeuTennis("Mengsk", "Kerrigan");
     }
 
     @Test
@@ -51,6 +51,25 @@ public class TestTennis {
         unJeuDeTennis.Joueur1Marque();
         unJeuDeTennis.Joueur1Marque();
         assertEquals("40-0", unJeuDeTennis.Score());
+    }
 
+    @Test
+    public void LeJoueur1PeutGagnerLaPartie()
+    {
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        assertEquals("Mengsk a gagne la partie", unJeuDeTennis.Score());
+    }
+
+    @Test
+    public void LeJoueur2PeutGagnerLaPartie()
+    {
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        assertEquals("Kerrigan a gagne la partie", unJeuDeTennis.Score());
     }
 }
