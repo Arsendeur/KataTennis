@@ -29,6 +29,8 @@ public class JeuTennis {
                 return "0";
             case 1:
                 return "15";
+            case 2:
+                return "30";
             default:
                 return "Score inconnu";
         }
