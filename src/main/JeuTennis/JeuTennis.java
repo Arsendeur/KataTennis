@@ -19,17 +19,26 @@ public class JeuTennis {
         if (LeJoueur1AGagneLaPartie()) return (nomDuJoueur1 + " a gagne la partie");
         if (LeJoueur2AGagneLaPartie()) return (nomDuJoueur2 + " a gagne la partie");
         if (LesJoueurSontAEqualite()) return "Equalite";
-
+        if (LeJoueur1ALAvantage()) return ("Avantage " + nomDuJoueur1);
+        if (LeJoueur2ALAvantage()) return ("Avantage " + nomDuJoueur2);
 
         return(ConvertirPointEnScore(nombreDePointDuJoueur1) + "-" + ConvertirPointEnScore(nomBreDePointDuJoueur2));
     }
 
-    private boolean LeJoueur2AGagneLaPartie() {
-        return nomBreDePointDuJoueur2 >= 4;
+    private boolean LeJoueur1ALAvantage() {
+        return (nombreDePointDuJoueur1 >= 4) && (nombreDePointDuJoueur1 == nomBreDePointDuJoueur2 + 1);
+    }
+
+    private boolean LeJoueur2ALAvantage() {
+        return (nomBreDePointDuJoueur2 >= 4) && (nomBreDePointDuJoueur2 == nombreDePointDuJoueur1 + 1);
     }
 
     private boolean LeJoueur1AGagneLaPartie() {
-        return nombreDePointDuJoueur1 >= 4;
+        return (nombreDePointDuJoueur1 >= 4) && (nombreDePointDuJoueur1 >= nomBreDePointDuJoueur2 + 2);
+    }
+
+    private boolean LeJoueur2AGagneLaPartie() {
+        return (nomBreDePointDuJoueur2 >= 4) && (nomBreDePointDuJoueur2 >= nombreDePointDuJoueur1 + 2);
     }
 
 

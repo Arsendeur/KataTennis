@@ -13,6 +13,16 @@ public class TestTennis {
         unJeuDeTennis = new JeuTennis("Mengsk", "Kerrigan");
     }
 
+    private void MettreLesDeuxAEqualite()
+    {
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+    }
+
     @Test
     public void PeutRetournerLeScoreDUnMatchNull()
     {
@@ -76,12 +86,40 @@ public class TestTennis {
     @Test
     public void LesJoueurSontAEqualite()
     {
-        unJeuDeTennis.Joueur1Marque();
-        unJeuDeTennis.Joueur1Marque();
-        unJeuDeTennis.Joueur1Marque();
-        unJeuDeTennis.Joueur2Marque();
-        unJeuDeTennis.Joueur2Marque();
-        unJeuDeTennis.Joueur2Marque();
+        MettreLesDeuxAEqualite();
         assertEquals("Equalite", unJeuDeTennis.Score());
+    }
+
+    @Test
+    public void LeJoueur1ALAvantage()
+    {
+        MettreLesDeuxAEqualite();
+
+        unJeuDeTennis.Joueur1Marque();
+        assertEquals("Avantage Mengsk", unJeuDeTennis.Score());
+    }
+
+    @Test
+    public void LeJoueur2ALAvantage()
+    {
+        MettreLesDeuxAEqualite();
+
+        unJeuDeTennis.Joueur2Marque();
+        assertEquals("Avantage Kerrigan", unJeuDeTennis.Score());
+    }
+
+    @Test
+    public void JeuInterminable()
+    {
+        MettreLesDeuxAEqualite();
+
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur1Marque();
+        unJeuDeTennis.Joueur2Marque();
+
+        unJeuDeTennis.Joueur2Marque();
+        unJeuDeTennis.Joueur2Marque();
+        assertEquals("Kerrigan a gagne la partie", unJeuDeTennis.Score());
     }
 }
